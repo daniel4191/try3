@@ -7,5 +7,26 @@
 </head>
 <body>
     post list
+    <nav>
+        butter nose
+    </nav>
+    <ul>
+        {% for post in posts %}
+            <a href="/posts/detail/">{{post.title}}</a>
+            {{post.name}}
+            {{post.content}}
+
+            <li>
+                {% for comment in post.comment_set.all %}
+                    연결글: {{comment.post}}
+                    작성댓글: {{comment.comment}}
+                    <hr>
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+    
+
+    
 </body>
 </html>
