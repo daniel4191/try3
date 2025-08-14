@@ -12,5 +12,13 @@ def post_list(request):
     }
     return render(request, 'post_list.html', context)
 
-def post_detail(request):
-    return render(request, "post_detail.html")
+def post_detail(request, post_id):
+    post = Post.objects.get(id=post_id)
+    print(post)
+    context = {
+        "post": post
+    }
+    return render(request, "post_detail.html", context)
+
+def post_add(request):
+    return render(request, "post_add.html")

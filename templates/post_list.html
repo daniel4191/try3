@@ -23,8 +23,15 @@
                     <hr>
                 {% endfor %}
             </li>
+            {% if post.thumbnail %}
+            <img src="{{post.thumbnail.url}}" alt="">
+            {% else %}
+
+            {% endif %}
+            
         {% endfor %}
     </ul>
+    
     
 
     
