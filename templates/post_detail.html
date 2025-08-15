@@ -6,12 +6,19 @@
     <title>Document</title>
 </head>
 <body>
-    hello
-    {{post_id}}
-    
+    <a href="/posts/">뒤로가기</a>
+    {{post.id}}번글
+    <div>
         {{post.title}}
         {{post.content}}
         {{post.thumbnail}}
+    </div>
+    <form action="" method="post">
+        {% csrf_token %}
+        <textarea name="comment" id="" required></textarea>
+        <button type="submit">댓글작성</button>
+    </form>
+        
     
 </body>
 </html>

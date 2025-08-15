@@ -11,8 +11,9 @@ class Post(models.Model):
         return f"{self.id}번 작성 글: {self.title}"
     
 class Comment(models.Model):
-    post = models.ForeignKey(Post, verbose_name="선택할 글", on_delete=models.CASCADE)
-    comment = models.TextField("댓글내용")
+    post = models.ForeignKey(Post, verbose_name="선택할 글", on_delete=models.CASCADE, null=False, blank=False)
+    comment = models.TextField("댓글내용", null=False, blank=False)
+    created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
         return f"{self.id}번째 댓글 {self.post}에 관한 글"
