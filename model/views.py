@@ -35,12 +35,16 @@ def post_add(request):
     if request.method == "POST":
         title = request.POST['title']
         content = request.POST['content']
-        writer = request.POST['writer']
+        name = request.POST['name']
+        # request.FILES.get('thumbnail')을 해줘야, 만약
+        # 빈 값으로 오게 되면 None 으로 처리하게 된다.
+        thumbnail = request.FILES.get('thumbnail')
         
         post = Post.objects.create(
             title=title,
-            writer=writer,
-            content=content
+            name=name,
+            content=content,
+            thumbnail = thumbnail
         )
         return redirect(f"/posts/{post.id}")
     return render(request, "post_add.html")

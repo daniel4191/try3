@@ -10,21 +10,25 @@
         <span>글 작성</span>
     </div>
     <div id="post-add">
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             <div>
                 <label for="">제목</label>
-                <input type="text" name="title">
+                <input type="text" name="title" required>
             </div>
             <div>
                 <label for="">작성자</label>
-                <input type="text" name="writer">
+                <input type="text" name="name" required>
             </div>
             <div>
                 <label for="">내용</label>
-                <textarea name="content" id=""></textarea>
+                <textarea name="content" id="" required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">버튼</button>
+            <div>
+                <label for="">썸네일</label>
+                <input type="file" name="thumbnail">
+            </div>
+            <button type="submit" class="btn btn-primary">제출 버튼</button>
         </form>
     </div>
     
